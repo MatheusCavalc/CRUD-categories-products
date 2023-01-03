@@ -1,11 +1,13 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
+import { Head } from '@inertiajs/inertia-vue3';
 
 const props = defineProps(['category', 'image'])
-
 </script>
 
 <template>
+    <Head :title="category.name" />
+
     <AuthenticatedLayout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">{{ category.name }}</h2>

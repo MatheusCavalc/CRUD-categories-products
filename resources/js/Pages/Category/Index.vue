@@ -5,6 +5,7 @@ import Table from '@/Components/Table.vue';
 import THead from '@/Components/THead.vue';
 import TData from '@/Components/TData.vue';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
+import DangerButton from '@/Components/DangerButton.vue';
 import ConfirmModal from '@/Components/ConfirmModal.vue';
 import { Link } from '@inertiajs/inertia-vue3';
 import { ref } from 'vue'
@@ -48,9 +49,9 @@ modal()
                         </template>
                         <template #tableRows>
                             <tr v-for="category in categories" :key="category.id"
-                                class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                                class="bg-white border-b hover:bg-gray-200">
                                 <TData type="first">
-                                    <Link :href="route('categories.show', category.id)">
+                                    <Link :href="route('categories.show', category.id)" class="hover:underline">
                                         {{ category.name }}
                                     </Link>
                                 </TData>
@@ -62,11 +63,11 @@ modal()
                                     </PrimaryButton>
                                     </Link>
 
-                                    <PrimaryButton @click="dialog = true">
+                                    <DangerButton @click="dialog = true">
                                         Delete
                                     <ConfirmModal :dialog="dialog" message="Are you sure?" :url="route('categories.destroy', category.id)">
                                     </ConfirmModal>
-                                    </PrimaryButton>
+                                    </DangerButton>
                                 </TData>
                             </tr>
                         </template>

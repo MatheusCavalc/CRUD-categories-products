@@ -2,7 +2,7 @@
 import { Link } from '@inertiajs/inertia-vue3';
 import PrimaryButton from '@/Components/PrimaryButton.vue';
 import { Dialog, DialogPanel, DialogTitle, TransitionChild, TransitionRoot } from '@headlessui/vue'
-import { CheckIcon } from '@heroicons/vue/24/outline'
+import { TrashIcon } from '@heroicons/vue/24/outline'
 
 const props = defineProps({
     dialog: {
@@ -41,7 +41,7 @@ const submit = () => {
                             <div>
                                 <div
                                     class="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-green-100">
-                                    <CheckIcon class="h-6 w-6 text-green-600" aria-hidden="true" />
+                                    <TrashIcon class="h-6 w-6 text-red-600" aria-hidden="true" />
                                 </div>
                                 <div class="mt-3 text-center sm:mt-5">
                                     <DialogTitle as="h3" class="text-lg font-medium leading-6 text-gray-900">
