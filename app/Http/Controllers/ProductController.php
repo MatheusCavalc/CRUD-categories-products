@@ -82,15 +82,15 @@ class ProductController extends Controller
 
         Product::findOrFail($id)->update($data);
 
-        return redirect('/products')->with('message', 'Product updated!');;
+        return redirect('/products')->with('message', 'Product updated!');
     }
 
     public function destroy($id)
     {
-        $export = Product::find($id);
+        $product = Product::find($id);
 
-        if ($export) {
-            $export->delete();
+        if ($product) {
+            $product->delete();
         }
 
         return redirect()->back()

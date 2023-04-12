@@ -77,7 +77,7 @@ class CategoryController extends Controller
 
         Category::findOrFail($id)->update($data);
 
-        return redirect('/categories')->with('message', 'Category updated!');;
+        return redirect('/categories')->with('message', 'Category updated!');
     }
 
     public function destroy($id)
