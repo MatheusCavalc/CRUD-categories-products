@@ -22,19 +22,18 @@ modal()
 </script>
 
 <template>
-
     <Head title="Products" />
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Products</h2>
+            <h2 class="text-xl font-semibold leading-tight text-gray-800">Products</h2>
         </template>
 
         <div class="py-3">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="overflow-hidden shadow-sm sm:rounded-lg">
 
-                    <div class="mb-2 flex justify-end">
+                    <div class="flex justify-end m-2">
                         <Link :href="route('products.create')">
                         <PrimaryButton>
                             New Product
@@ -49,8 +48,7 @@ modal()
                             <THead label="Edit" />
                         </template>
                         <template #tableRows>
-                            <tr v-for="product in products" :key="product.id"
-                                class="bg-white border-b hover:bg-gray-200">
+                            <tr v-for="product in products" :key="product.id" class="bg-white border-b hover:bg-gray-200">
                                 <TData type="first">
                                     <Link :href="route('products.show', product.id)" class="hover:underline">
                                     {{ product.name }}
@@ -64,18 +62,20 @@ modal()
                                 </TData>
 
                                 <TData type="normal">
-                                    <Link :href="route('products.edit', product.id)">
-                                    <PrimaryButton>
-                                        Edit
-                                    </PrimaryButton>
-                                    </Link>
+                                    <div class="flex gap-2">
+                                        <Link :href="route('products.edit', product.id)">
+                                        <PrimaryButton>
+                                            Edit
+                                        </PrimaryButton>
+                                        </Link>
 
-                                    <DangerButton @click="dialog = true">
-                                        Delete
-                                        <ConfirmModal :dialog="dialog" message="Are you sure?"
-                                            :url="route('products.destroy', product.id)">
-                                        </ConfirmModal>
-                                    </DangerButton>
+                                        <DangerButton @click="dialog = true">
+                                            Delete
+                                            <ConfirmModal :dialog="dialog" message="Are you sure?" @close-modal="modal"
+                                                :url="route('products.destroy', product.id)">
+                                            </ConfirmModal>
+                                        </DangerButton>
+                                    </div>
                                 </TData>
                             </tr>
                         </template>

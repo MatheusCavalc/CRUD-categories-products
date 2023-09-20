@@ -10,18 +10,22 @@ const props = defineProps(['product', 'image'])
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">{{ product.name }}</h2>
+            <h2 class="text-xl font-semibold leading-tight text-gray-800">{{ product.name }}</h2>
         </template>
 
         <div class="py-3">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                    <img class="w-full" :src="image" :alt="product.name">
-                    <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2">{{ product.name }}</div>
-                        <p class="text-gray-700 text-base">
-                            {{ product.category.name }}
-                        </p>
+            <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+                <div class="w-full overflow-hidden rounded shadow-lg">
+                    <div class="flex justify-center p-3">
+                        <div class="p-3 bg-white">
+                            <img class="w-40 h-40" :src="image" :alt="product.name">
+                            <div class="py-4">
+                                <div class="mb-2 text-xl font-bold">{{ product.name }}</div>
+                                <p class="text-base text-gray-700">
+                                    {{ product.category.name }}
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

@@ -10,15 +10,19 @@ const props = defineProps(['category', 'image'])
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">{{ category.name }}</h2>
+            <h2 class="text-xl font-semibold leading-tight text-gray-800">{{ category.name }}</h2>
         </template>
 
         <div class="py-3">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <div class="max-w-sm rounded overflow-hidden shadow-lg">
-                    <img class="w-full" :src="image" :alt="category.name">
-                    <div class="px-6 py-4">
-                        <div class="font-bold text-xl mb-2">{{ category.name }}</div>
+            <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
+                <div class="w-full overflow-hidden rounded shadow-lg">
+                    <div class="flex justify-center p-3">
+                        <div class="p-3 bg-white">
+                            <img class="w-full" :src="image" :alt="category.name">
+                            <div class="py-4">
+                                <div class="mb-2 text-xl font-bold">{{ category.name }}</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

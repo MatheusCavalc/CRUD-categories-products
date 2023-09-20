@@ -27,18 +27,18 @@ modal()
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">Categories</h2>
+            <h2 class="text-xl font-semibold leading-tight text-gray-800">Categories</h2>
         </template>
 
         <div class="py-3">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="mx-auto max-w-7xl sm:px-6 lg:px-8">
                 <div class="overflow-hidden shadow-sm sm:rounded-lg">
 
-                    <div class="mb-2 flex justify-end">
+                    <div class="flex justify-end m-2">
                         <Link :href="route('categories.create')">
-                            <PrimaryButton>
-                                New Category
-                            </PrimaryButton>
+                        <PrimaryButton>
+                            New Category
+                        </PrimaryButton>
                         </Link>
                     </div>
 
@@ -52,22 +52,25 @@ modal()
                                 class="bg-white border-b hover:bg-gray-200">
                                 <TData type="first">
                                     <Link :href="route('categories.show', category.id)" class="hover:underline">
-                                        {{ category.name }}
+                                    {{ category.name }}
                                     </Link>
                                 </TData>
 
                                 <TData type="normal">
-                                    <Link :href="route('categories.edit', category.id)">
-                                    <PrimaryButton>
-                                        Edit
-                                    </PrimaryButton>
-                                    </Link>
+                                    <div class="flex gap-2">
+                                        <Link :href="route('categories.edit', category.id)">
+                                        <PrimaryButton>
+                                            Edit
+                                        </PrimaryButton>
+                                        </Link>
 
-                                    <DangerButton @click="dialog = true">
-                                        Delete
-                                    <ConfirmModal :dialog="dialog" message="Are you sure?" :url="route('categories.destroy', category.id)">
-                                    </ConfirmModal>
-                                    </DangerButton>
+                                        <DangerButton @click="dialog = true">
+                                            Delete
+                                            <ConfirmModal :dialog="dialog" message="Are you sure?" @close-modal="modal"
+                                                :url="route('categories.destroy', category.id)">
+                                            </ConfirmModal>
+                                        </DangerButton>
+                                    </div>
                                 </TData>
                             </tr>
                         </template>
